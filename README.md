@@ -1,4 +1,0 @@
-ImperialShuttle
-===============
-
-Projekt na grafikę.
