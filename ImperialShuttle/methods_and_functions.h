@@ -1,9 +1,23 @@
 #include <glut.h>
+#include <math.h>
 
 const float pi = 3.1415926535897;
 float fovy = 60.0, aspect = 1.0, near_ = 0.1, far_ = 20.0;
-float Y = 1.5, Y_look_at = 0.0;  
-float alfa = 40.0;
+float Y = 2.0, Y_look_at = 0.0;  
+float alfa = 60.0;
+const float delta_alfa2 = 0.5;
+float alfa2 = 0.0;
+bool linie = true;
+
+void anim()
+{
+	if(alfa2 <= 145)
+	{
+		alfa2 += delta_alfa2;
+		glutPostRedisplay();
+	}
+	else alfa2 = 0;
+}
 
 void lines()
 {
@@ -17,7 +31,7 @@ void lines()
 		glVertex3f(0.0, -5.0, 0.0);
 		glVertex3f(0.0,  5.0, 0.0);
 	
-		glColor3f(0.0,  0.0, 0.0); // czarna oœ Z
+		glColor3f(1.0,  0.0, 0.0); // czerwona oœ Z
 		glVertex3f(0.0, 0.0, -5.0);
 		glVertex3f(0.0, 0.0,  5.0);  
 	glEnd();
@@ -31,6 +45,17 @@ void rectangle()
 		glArrayElement(1);
 		glArrayElement(2);
 		glArrayElement(3); 
+    glEnd();
+}
+
+void pentagon()
+{
+	glBegin(GL_POLYGON);
+		glArrayElement(0);
+		glArrayElement(1);
+		glArrayElement(2);
+		glArrayElement(3);
+		glArrayElement(4);
     glEnd();
 }
 
@@ -48,9 +73,26 @@ void rectangle_lines()
     glEnd();
 }
 
+void pentagon_lines()
+{
+	glBegin(GL_LINES);
+		glArrayElement(0);
+		glArrayElement(1);
+		glArrayElement(1);
+		glArrayElement(2);
+		glArrayElement(2);
+		glArrayElement(3);
+		glArrayElement(3);
+		glArrayElement(4);
+		glArrayElement(4);
+		glArrayElement(0);
+    glEnd();
+}
+
 void klawiatura(int  kod_klawisza, int x, int y)
 {
-  switch (kod_klawisza) {
+  switch (kod_klawisza) 
+  {
 
   case GLUT_KEY_LEFT :
 		   alfa += 1;
@@ -91,11 +133,68 @@ void klawiatura(int  kod_klawisza, int x, int y)
   }
 }
 
- void odrysuj(int szerokosc, int wysokosc)
+void odrysuj(int szerokosc, int wysokosc)
 {
 	float  h = float(wysokosc), w = float(szerokosc);
 	glViewport(0, 0, szerokosc, wysokosc);
 	glLoadIdentity();
 	gluPerspective(fovy, w/h, near_, far_);
 	
+}
+
+void siatka()
+{
+	glInterleavedArrays(GL_C3F_V3F, 0, kokpit_przod_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, kokpit_tyl_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, kokpit_dol_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, kokpit_prawy_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, kokpit_lewy_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, kokpit_gora_linie),
+	rectangle_lines();
+	
+	
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusGorny_dol_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusGorny_gora_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusGorny_przod_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusGorny_tyl_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusGorny_lewy_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusGorny_prawy_linie),
+	rectangle_lines();
+	
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusDolny_gora_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusDolny_dol_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusDolny_przod_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, korpusDolny_tyl_linie),
+	rectangle_lines();
+	
+	glInterleavedArrays(GL_C3F_V3F, 0, mocowanie_dol_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, mocowanie_gora_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, mocowanie_przod_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, mocowanie_tyl_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, mocowanie_prawy_linie),
+	rectangle_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, mocowanie_lewy_linie),
+	rectangle_lines();
+
+	glInterleavedArrays(GL_C3F_V3F, 0, gorneSkrzydlo_prawy_linie),
+	pentagon_lines();
+	glInterleavedArrays(GL_C3F_V3F, 0, gorneSkrzydlo_lewy_linie),
+	pentagon_lines();
 }

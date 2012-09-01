@@ -1,22 +1,21 @@
-﻿Build started 2012-08-30 15:25:22.
-     1>Project "C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\ImperialShuttle\ImperialShuttle.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\ImperialShuttle.lastbuildstate".
-       InitializeBuildStatus:
+﻿Build started 2012-08-31 20:10:11.
+     1>Project "C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\ImperialShuttle\ImperialShuttle.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
          Creating "Debug\ImperialShuttle.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm- /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /analyze- /errorReport:prompt main.cpp
          main.cpp
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\Debug\ImperialShuttle.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\ImperialShuttle.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\Debug\ImperialShuttle.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\Debug\ImperialShuttle.lib" /MACHINE:X86 Debug\main.obj
+     1>main.obj : warning LNK4248: unresolved typeref token (01000010) for 'GLUquadric'; image may not run
          ImperialShuttle.vcxproj -> C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\Debug\ImperialShuttle.exe
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\Debug\ImperialShuttle.exe;#1" /manifest Debug\ImperialShuttle.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\ImperialShuttle.unsuccessfulbuild".
          Touching "Debug\ImperialShuttle.lastbuildstate".
-     1>Done Building Project "C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\ImperialShuttle\ImperialShuttle.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\Oliwer\Documents\Visual Studio 2010\Projects\ImperialShuttle\ImperialShuttle\ImperialShuttle.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.15
+Time Elapsed 00:00:01.80
