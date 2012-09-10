@@ -6,17 +6,22 @@ float fovy = 60.0, aspect = 1.0, near_ = 0.1, far_ = 20.0;
 float Y = 2.0, Y_look_at = 0.0;  
 float alfa = 60.0;
 const float delta_alfa2 = 0.5;
-float alfa2 = 0.0;
+float alfa2 = - 5.0;
 bool linie = true;
+bool skrzydla = false;
 
 void anim()
 {
-	if(alfa2 <= 145)
+	if((alfa2 <= 145) && skrzydla)
 	{
 		alfa2 += delta_alfa2;
 		glutPostRedisplay();
 	}
-	else alfa2 = 0;
+	if((alfa2 > - 5.0) && !skrzydla)
+	{
+		alfa2 -= delta_alfa2;
+		glutPostRedisplay();
+	}
 }
 
 void lines()
@@ -117,15 +122,15 @@ void klawiatura(int  kod_klawisza, int x, int y)
 		   break;
 
   case GLUT_KEY_PAGE_UP :
-		   glutPostRedisplay();
-		   break;
-
-  case GLUT_KEY_PAGE_DOWN :
+		if(!skrzydla)   
+		   skrzydla = true;
+		else
+		   skrzydla = false;
 		   glutPostRedisplay();
 		   break;
 
   case GLUT_KEY_HOME :
-		   alfa = 40;
+		   alfa = 60;
 		   Y = 2.0;
 		   Y_look_at = 0.0;
 		   glutPostRedisplay();
@@ -137,9 +142,10 @@ void odrysuj(int szerokosc, int wysokosc)
 {
 	float  h = float(wysokosc), w = float(szerokosc);
 	glViewport(0, 0, szerokosc, wysokosc);
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(fovy, w/h, near_, far_);
-	
+	gluPerspective(fovy, aspect, near_, far_);
+	glMatrixMode(GL_MODELVIEW);
 }
 
 void siatka()
