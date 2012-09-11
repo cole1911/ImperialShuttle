@@ -7,7 +7,7 @@ float Y = 2.0, Y_look_at = 0.0;
 float alfa = 60.0;
 const float delta_alfa2 = 0.5;
 float alfa2 = - 5.0;
-bool linie = true;
+bool linie = false;
 bool skrzydla = false;
 
 void anim()
@@ -46,9 +46,13 @@ void lines()
 void rectangle()
 {
 	glBegin(GL_QUADS);
+		glTexCoord2f(0, 0);
 		glArrayElement(0);
+		glTexCoord2f(1, 0);
 		glArrayElement(1);
+		glTexCoord2f(1, 1);
 		glArrayElement(2);
+		glTexCoord2f(0, 1);
 		glArrayElement(3); 
     glEnd();
 }
@@ -56,9 +60,13 @@ void rectangle()
 void pentagon()
 {
 	glBegin(GL_POLYGON);
+	    glTexCoord2f(0, 0);
 		glArrayElement(0);
+		glTexCoord2f(1, 0);
 		glArrayElement(1);
+		glTexCoord2f(1, 1);
 		glArrayElement(2);
+		glTexCoord2f(0, 1);
 		glArrayElement(3);
 		glArrayElement(4);
     glEnd();
